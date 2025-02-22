@@ -283,7 +283,7 @@ static void zoom(const Arg *arg);
 /* variables */
 static const char autostartblocksh[] = "autostart_blocking.sh";
 static const char autostartsh[] = "autostart.sh";
-static const char broken[] = "broken";
+static const char broken[] = "oopsi, woopsi. sowwy qwq :3";
 static Systray *systray = NULL;
 static const char dwmdir[] = "dwm";
 static const char localshare[] = ".local/share";
@@ -2422,7 +2422,7 @@ void
 updatestatus(void)
 {
 	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
-		strcpy(stext, "lucy-"VERSION);
+		strcpy(stext, "lucywm-"VERSION);
 	drawbar(selmon);
 	updatesystray();
 }
@@ -2704,7 +2704,7 @@ int
 main(int argc, char *argv[])
 {
 	if (argc == 2 && !strcmp("-v", argv[1]))
-		die("lucy-"VERSION);
+		die("lucywm-"VERSION);
 	else if (argc != 1)
 		die("usage: dwm [-v]");
 	if (!setlocale(LC_CTYPE, "") || !XSupportsLocale())
