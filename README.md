@@ -1,3 +1,5 @@
+# Lucy's dwm
+
 # Patches
 
 ## actualfullscreen
