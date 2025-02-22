@@ -1,5 +1,10 @@
 # Lucy's dwm
 
+## WIP
+
+- i3lock integration (built-in)
+- statusbar built-in
+
 # Patches
 
 Patches and their explanation and what they do
