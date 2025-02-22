@@ -2,6 +2,9 @@
 
 # Patches
 
+Patches and their explanation and what they do
+
+
 ## actualfullscreen
 Actually toggle fullscreen for a window, instead of toggling the status bar and the monocle layout.
 
