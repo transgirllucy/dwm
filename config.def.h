@@ -51,6 +51,15 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 };
 
+#define STACKKEYS(MOD,ACTION) \
+       { MOD, XK_j,     ACTION##stack, {.i = INC(+1) } }, \
+       { MOD, XK_k,     ACTION##stack, {.i = INC(-1) } }, \
+       { MOD, XK_grave, ACTION##stack, {.i = PREVSEL } }, \
+       { MOD, XK_q,     ACTION##stack, {.i = 0 } }, \
+       { MOD, XK_a,     ACTION##stack, {.i = 1 } }, \
+       { MOD, XK_z,     ACTION##stack, {.i = 2 } }, \
+       { MOD, XK_x,     ACTION##stack, {.i = -1 } },
+
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
@@ -72,8 +81,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	STACKKEYS(MODKEY,                          focus)
+	STACKKEYS(MODKEY|ShiftMask,                push)
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
@@ -102,7 +111,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_BackSpace,      quit,           {0} },
 };
 
 /* button definitions */
